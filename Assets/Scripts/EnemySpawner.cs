@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float timeElapsed;
     [SerializeField] List<EnemyColor> enemyColors;
     [SerializeField] Transform enemyPrefab;
+    [SerializeField] float spawnRampStep;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class EnemySpawner : MonoBehaviour
         if (timeElapsed > spawnTimer)
         {
             timeElapsed = 0;
+            spawnTimer -= spawnRampStep;
             SpawnEnemy();
         }
     }

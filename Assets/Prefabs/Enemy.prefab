@@ -48,7 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyColor: {fileID: 11400000, guid: d4b503c5e9def4346ac2f96e5c54bcc5, type: 2}
-  movementSpeed: 1
+  movementSpeedLow: 1
+  movementSpeedHigh: 3
 --- !u!50 &3942425600471062446
 Rigidbody2D:
   serializedVersion: 4

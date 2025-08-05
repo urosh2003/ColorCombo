@@ -6,7 +6,9 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rigidbody;
     private Vector2 movementDirection;
-    [SerializeField] private float movementSpeed;
+    private float movementSpeed;
+    [SerializeField] private float movementSpeedLow;
+    [SerializeField] private float movementSpeedHigh;
 
     private void Update()
     {
@@ -24,13 +26,15 @@ public class Enemy : MonoBehaviour
     {
         enemyColor = color;
         spriteRenderer.sprite = enemyColor.sprite;
+        movementSpeed = Random.Range(1f, 2.5f);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         Projectile projectile = collision.gameObject.GetComponent<Projectile>();
         if (projectile.projectileColor.color == enemyColor.color)
-        { 
+        {
+            GameManager.instance.EnemyDied();
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
