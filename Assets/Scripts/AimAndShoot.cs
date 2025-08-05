@@ -32,8 +32,7 @@ public class AimAndShoot : MonoBehaviour
     {
         if (context.performed)
         {
-            Transform spawnedProjectile = Instantiate(projectilePrefab, projectileSpawnpoint.position, transform.rotation);
-            spawnedProjectile.GetComponent<Rigidbody2D>().velocity = aimDirection * projectileSpeed;
+            PlayerManager.instance.Shoot(projectileSpawnpoint.position, transform.rotation, aimDirection);
         }
     }
 }
