@@ -143,4 +143,10 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameManager.instance.GameOver();
+        gameObject.SetActive(false);
+    }
 }

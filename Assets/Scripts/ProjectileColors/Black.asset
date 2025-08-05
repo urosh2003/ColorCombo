@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Black
   m_EditorClassIdentifier: 
   sprite: {fileID: -8602292853984461677, guid: 5f39a3091fd0a274097a2a1834419850, type: 3}
-  color: 0
+  color: 7

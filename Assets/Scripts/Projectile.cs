@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private ProjectileColor projectileColor;
+    public ProjectileColor projectileColor;
     private SpriteRenderer spriteRenderer;
 
     private void Awake()
@@ -17,5 +17,12 @@ public class Projectile : MonoBehaviour
         spriteRenderer.sprite = projectileColor.sprite;
     }
 
-
+    private void FixedUpdate()
+    {
+        if(transform.position.x > 20 || transform.position.y > 20 ||
+            transform.position.x < -20 || transform.position.y < -20)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

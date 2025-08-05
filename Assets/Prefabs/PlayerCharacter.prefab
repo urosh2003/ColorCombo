@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 8428872452784598171}
   - component: {fileID: 543967146168037364}
   - component: {fileID: 8855719911021876325}
+  - component: {fileID: 5843628159372947560}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -435,6 +436,41 @@ MonoBehaviour:
   orangeWizard: {fileID: 3104197123997736047, guid: 8ee2fd462cecde145b9e8c4528e1754a, type: 3}
   greenWizard: {fileID: -6194260929987676888, guid: 03a312fc6ad985048b6de3117ffb0b8f, type: 3}
   blackWizard: {fileID: 1144345842098023296, guid: b7150444ec8ac184a91e6a5f17342e7c, type: 3}
+--- !u!70 &5843628159372947560
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4460766326571810006}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0017489791, y: 0.45823562}
+  m_Size: {x: 0.5664617, y: 0.8600806}
+  m_Direction: 0
 --- !u!1 &6571370801093814488
 GameObject:
   m_ObjectHideFlags: 0

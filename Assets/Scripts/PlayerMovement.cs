@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,7 +16,17 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rigidbody.velocity = movementVecror * movementSpeed;
+
+        Vector2 intendedVelocity = movementVecror * movementSpeed;
+        float xVel = intendedVelocity.x;
+        float yVel = intendedVelocity.y;
+
+        if (transform.position.x >= 8.5 && xVel > 0) xVel = 0;
+        if (transform.position.x <= -8.5 && xVel < 0) xVel = 0;
+        if (transform.position.y >= 4.5f && yVel > 0) yVel = 0;
+        if (transform.position.y <= -4.5f && yVel < 0) yVel = 0;
+
+        rigidbody.velocity = new Vector2(xVel, yVel);
     }
 
     public void MoveInput(InputAction.CallbackContext context)
