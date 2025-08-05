@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private ProjectileColor projectileColor;
+    public ProjectileColor projectileColor;
     private SpriteRenderer spriteRenderer;
 
     private void Awake()

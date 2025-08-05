@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7662c33031d1af047b021a0c9f4272ba, type: 3}
-  m_Name: Black
+  m_Script: {fileID: 11500000, guid: 6343fb6a631ad504fabae750aff13262, type: 3}
+  m_Name: GreenEnemy
   m_EditorClassIdentifier: 
-  sprite: {fileID: -8602292853984461677, guid: 5f39a3091fd0a274097a2a1834419850, type: 3}
-  color: 7
+  color: 6
+  sprite: {fileID: 4902165074711105438, guid: bc458e8c5848407469d6b500ed80a06d, type: 3}
