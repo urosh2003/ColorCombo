@@ -25,7 +25,10 @@ public class EnemySpawner : MonoBehaviour
         if (timeElapsed > spawnTimer)
         {
             timeElapsed = 0;
-            spawnTimer -= spawnRampStep;
+            if (spawnTimer > 0.05)
+            {
+                spawnTimer -= spawnRampStep;
+            }
             SpawnEnemy();
         }
     }
