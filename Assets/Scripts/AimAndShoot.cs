@@ -35,4 +35,12 @@ public class AimAndShoot : MonoBehaviour
             PlayerManager.instance.Shoot(projectileSpawnpoint.position, transform.rotation, aimDirection);
         }
     }
+
+    public void ShootSuper(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PlayerManager.instance.ShootSuper(projectileSpawnpoint.position, transform.rotation, aimDirection);
+        }
+    }
 }

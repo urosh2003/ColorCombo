@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum WizardColor { WHITE, RED, YELLOW, BLUE, ORANGE, PURPLE, GREEN, BLACK }
+public enum WizardColor { WHITE, RED, YELLOW, BLUE, ORANGE, PURPLE, GREEN, BLACK, ALL }
 
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
     private SpriteRenderer spriteRenderer;
     private IState colorState;
+    private bool isSuperReady;
 
     [SerializeField] Transform projectilePrefab;
     [SerializeField] float projectileSpeed;
@@ -22,6 +23,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] ProjectileColor orangeProjectile;
     [SerializeField] ProjectileColor greenProjectile; 
     [SerializeField] ProjectileColor blackProjectile; 
+    [SerializeField] ProjectileColor superProjectile; 
     [SerializeField] ProjectileColor currentProjectileColor; 
     [SerializeField] Sprite whiteWizard;
     [SerializeField] Sprite redWizard;
@@ -32,12 +34,28 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] Sprite greenWizard;
     [SerializeField] Sprite blackWizard;
 
+    private HashSet<WizardColor> superColors;
+
+    public event Action SuperUsed;
+
     private void Awake()
     {
         instance = this; 
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         colorState = new WhiteState();
         colorState.Enter();
+        GameManager.instance.ColorEnemyFell += AddSuperColor;
+        isSuperReady = true;
+        superColors = new HashSet<WizardColor>();
+    }
+
+    private void AddSuperColor(WizardColor color)
+    {
+        superColors.Add(color);
+        if (superColors.Count >= 6)
+        {
+            isSuperReady = true;
+        }
     }
 
     public void SetWhite()
@@ -93,7 +111,7 @@ public class PlayerManager : MonoBehaviour
     {
         Transform spawnedProjectile = Instantiate(projectilePrefab, projectileSpawnpoint, projectileRotation);
         spawnedProjectile.GetComponent<Projectile>().ChangeProjectileColor(currentProjectileColor);
-        spawnedProjectile.GetComponent<Rigidbody2D>().velocity = aimDirection * projectileSpeed;
+        spawnedProjectile.GetComponent<Rigidbody2D>().velocity = aimDirection.normalized * projectileSpeed;
         IState newState = colorState.ResetColor();
 
         if (!newState.Equals(colorState))
@@ -102,6 +120,22 @@ public class PlayerManager : MonoBehaviour
             colorState = newState;
             colorState.Enter();
         }
+    }
+
+    public void ShootSuper(Vector3 projectileSpawnpoint, Quaternion projectileRotation, Vector2 aimDirection)
+    {
+        if(!isSuperReady)
+        {
+            return;
+        }
+        
+        Transform spawnedProjectile = Instantiate(projectilePrefab, projectileSpawnpoint, projectileRotation);
+        spawnedProjectile.GetComponent<Projectile>().ChangeProjectileColor(superProjectile);
+        spawnedProjectile.GetComponent<Rigidbody2D>().velocity = aimDirection.normalized * projectileSpeed;
+
+        isSuperReady = false;
+        superColors.Clear();
+        SuperUsed?.Invoke();
     }
 
     public void AddBlue(InputAction.CallbackContext context)
@@ -148,5 +182,10 @@ public class PlayerManager : MonoBehaviour
     {
         GameManager.instance.GameOver();
         gameObject.SetActive(false);
+    }
+
+    public void OnDestroy()
+    {
+        GameManager.instance.ColorEnemyFell -= AddSuperColor;
     }
 }

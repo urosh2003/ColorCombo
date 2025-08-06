@@ -12,7 +12,7 @@ public class YellowState : IState
 
     public override IState AddYellow()
     {
-        return new YellowState();
+        return this;
     }
 
     public override void Enter()

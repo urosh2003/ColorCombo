@@ -7,7 +7,7 @@ public class ScoreUI : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.instance.scoreChanged += ChangeScore;
+        GameManager.instance.ScoreChanged += ChangeScore;
     }
 
     private void ChangeScore(int score)
@@ -17,6 +17,6 @@ public class ScoreUI : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameManager.instance.scoreChanged -= ChangeScore;
+        GameManager.instance.ScoreChanged -= ChangeScore;
     }
 }

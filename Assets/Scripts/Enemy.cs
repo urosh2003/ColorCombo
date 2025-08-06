@@ -34,10 +34,19 @@ public class Enemy : MonoBehaviour
         Projectile projectile = collision.gameObject.GetComponent<Projectile>();
         if (projectile.projectileColor.color == enemyColor.color)
         {
-            GameManager.instance.EnemyDied();
+            GameManager.instance.EnemyDied(enemyColor.color);
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
-        Destroy(collision.gameObject);
+
+        if(projectile.projectileColor.color == WizardColor.ALL)
+        {
+            GameManager.instance.EnemyDied();
+            Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
