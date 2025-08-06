@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1d0d5f88ef6069b46bc2cc3bac749a0a
+guid: ee546287c4cf1b8499d976aebdbd8679
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638900982804222062
+  platformSettingsDirtyTick: 638900991215617950
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: BigSuper
+  - name: EnemyDead
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.11538462}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 32
-      height: 32
-    spriteID: 8b6535ec758f33a4397a4352ce0b2f56
+      width: 26
+      height: 26
+    spriteID: 534e17c20ebf08f47988c978c022bcff
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -142,20 +142,20 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1332552947
-    name: BigSuper
+    guid: 1497991388
+    name: EnemyDead
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: BigSuper
+    - name: EnemyDead
       frameIndex: 0
       cellRect:
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      spriteId: 8b6535ec758f33a4397a4352ce0b2f56
+        x: 3
+        y: 3
+        width: 26
+        height: 26
+      spriteId: 534e17c20ebf08f47988c978c022bcff
     linkedCells: []
     parentIndex: -1
   platformSettings:

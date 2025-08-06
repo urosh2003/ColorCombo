@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 9021124298923306903, guid: d86ac4128eb5713498347c78757baf5b, type: 3}
-  projectileSpeed: 8
+  projectileSpeed: 10
   whiteProjectile: {fileID: 11400000, guid: 1be6f31e80fe63d488830da49da640eb, type: 2}
   redProjectile: {fileID: 11400000, guid: df08ddeb4c5b8054b9c5c009e9521149, type: 2}
   blueProjectile: {fileID: 11400000, guid: d8d82aec3477ffe41bb6f274f36c7768, type: 2}

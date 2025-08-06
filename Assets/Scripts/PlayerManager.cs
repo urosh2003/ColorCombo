@@ -132,6 +132,7 @@ public class PlayerManager : MonoBehaviour
         Transform spawnedProjectile = Instantiate(projectilePrefab, projectileSpawnpoint, projectileRotation);
         spawnedProjectile.GetComponent<Projectile>().ChangeProjectileColor(superProjectile);
         spawnedProjectile.GetComponent<Rigidbody2D>().velocity = aimDirection.normalized * projectileSpeed;
+        spawnedProjectile.localScale = new Vector3(4, 4, 1);
 
         isSuperReady = false;
         superColors.Clear();
