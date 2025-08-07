@@ -20,9 +20,8 @@ public class HitStop : MonoBehaviour
 
     IEnumerator StopTime()
     {
-        float originalTimeScale = Time.timeScale;
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(hitStopDuration);
-        Time.timeScale = originalTimeScale;
+        Time.timeScale = 1;
     }
 }

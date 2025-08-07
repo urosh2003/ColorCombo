@@ -13,6 +13,13 @@ public class AimAndShoot : MonoBehaviour
     [SerializeField] private Transform projectilePrefab;
     [SerializeField] private Transform projectileSpawnpoint;
 
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -32,6 +39,7 @@ public class AimAndShoot : MonoBehaviour
     {
         if (context.performed)
         {
+            audioSource.Play();
             PlayerManager.instance.Shoot(projectileSpawnpoint.position, transform.rotation, aimDirection);
         }
     }

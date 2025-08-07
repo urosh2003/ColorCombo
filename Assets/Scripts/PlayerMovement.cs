@@ -18,14 +18,16 @@ public class PlayerMovement : MonoBehaviour
     {
 
         Vector2 intendedVelocity = movementVecror * movementSpeed;
+
         float xVel = intendedVelocity.x;
         float yVel = intendedVelocity.y;
 
+        /*
         if (transform.position.x >= 8.5 && xVel > 0) xVel = 0;
         if (transform.position.x <= -8.5 && xVel < 0) xVel = 0;
         if (transform.position.y >= 4.5f && yVel > 0) yVel = 0;
         if (transform.position.y <= -4.5f && yVel < 0) yVel = 0;
-
+        */
         rigidbody.velocity = new Vector2(xVel, yVel);
     }
 
