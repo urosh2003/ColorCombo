@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float movementSpeedLow;
     [SerializeField] private float movementSpeedHigh;
     [SerializeField] private float deadSpriteDuration;
+    private AudioSource audioSource;
 
     private void Update()
     {
@@ -22,6 +23,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rigidbody = GetComponent<Rigidbody2D>();
     }
@@ -51,6 +53,7 @@ public class Enemy : MonoBehaviour
         else
         {
             Destroy(collision.gameObject);
+            audioSource.Play();
         }
     }
 
