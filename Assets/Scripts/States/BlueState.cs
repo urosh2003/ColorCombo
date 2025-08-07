@@ -2,7 +2,7 @@ public class BlueState : IState
 {
     public override IState AddBlue()
     {
-        throw new System.NotImplementedException();
+        return this;
     }
 
     public override IState AddRed()

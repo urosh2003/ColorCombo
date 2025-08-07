@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 416181559499470383}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -109,7 +109,7 @@ Transform:
   m_GameObject: {fileID: 3339894851628294099}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -400,6 +400,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f27c8427-cd26-4dd7-8024-96b09488385f
     m_ActionName: PlayerControlls/AddYellow[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a0c4191a-4641-4288-813e-625868b0f056
+    m_ActionName: PlayerControlls/Super[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerControlls
@@ -418,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 9021124298923306903, guid: d86ac4128eb5713498347c78757baf5b, type: 3}
-  projectileSpeed: 2
+  projectileSpeed: 10
   whiteProjectile: {fileID: 11400000, guid: 1be6f31e80fe63d488830da49da640eb, type: 2}
   redProjectile: {fileID: 11400000, guid: df08ddeb4c5b8054b9c5c009e9521149, type: 2}
   blueProjectile: {fileID: 11400000, guid: d8d82aec3477ffe41bb6f274f36c7768, type: 2}
@@ -427,6 +431,7 @@ MonoBehaviour:
   orangeProjectile: {fileID: 11400000, guid: f720bcba25cde824e943e60eb5ffdccd, type: 2}
   greenProjectile: {fileID: 11400000, guid: 7be6e43288fd6f741a0f1b5aed2fb908, type: 2}
   blackProjectile: {fileID: 11400000, guid: 548403b0ecf5a5d4f88811fa79c5ae9a, type: 2}
+  superProjectile: {fileID: 11400000, guid: 7ee37f3cd1eaab348bbae7be963e5e07, type: 2}
   currentProjectileColor: {fileID: 0}
   whiteWizard: {fileID: -8636186458714413406, guid: 2199e15b6ebd09140825102b712e8154, type: 3}
   redWizard: {fileID: 8599387843072746209, guid: cc169a257c1ad3d41be58e5ec0cfef65, type: 3}
@@ -468,8 +473,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0017489791, y: 0.45823562}
-  m_Size: {x: 0.5664617, y: 0.8600806}
+  m_Offset: {x: -0.0017489791, y: -0.07265663}
+  m_Size: {x: 0.5664617, y: 0.80539393}
   m_Direction: 0
 --- !u!1 &6571370801093814488
 GameObject:

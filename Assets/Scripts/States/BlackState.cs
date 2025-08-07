@@ -2,17 +2,17 @@ public class BlackState : IState
 {
     public override IState AddBlue()
     {
-        return new BlackState();
+        return this;
     }
 
     public override IState AddRed()
     {
-        return new BlackState();
+        return this;
     }
 
     public override IState AddYellow()
     {
-        return new BlackState();
+        return this;
     }
 
     public override void Enter()

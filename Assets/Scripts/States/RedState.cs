@@ -7,7 +7,7 @@ public class RedState : IState
 
     public override IState AddRed()
     {
-        return new RedState();
+        return this;
     }
 
     public override IState AddYellow()

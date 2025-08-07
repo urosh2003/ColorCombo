@@ -39,6 +39,6 @@ public class EnemySpawner : MonoBehaviour
         int spawnColor = Random.Range(0, enemyColors.Count);
 
         Transform spawnedEnemy = Instantiate(enemyPrefab, spawnOffsets[spawnPosition] + PlayerManager.instance.transform.position, Quaternion.identity);
-        spawnedEnemy.GetComponent<Enemy>().SetEnemyColor(enemyColors[spawnColor]);
+        spawnedEnemy.GetComponent<Enemy>().SetEnemyColor(enemyColors[spawnColor], spawnTimer);
     }
 }
