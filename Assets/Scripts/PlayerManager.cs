@@ -9,7 +9,7 @@ public enum WizardColor { WHITE, RED, YELLOW, BLUE, ORANGE, PURPLE, GREEN, BLACK
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
-    private SpriteRenderer spriteRenderer;
+    private SpriteRenderer staffSpriteRenderer;
     private IState colorState;
     private bool isSuperReady;
 
@@ -25,23 +25,26 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] ProjectileColor blackProjectile; 
     [SerializeField] ProjectileColor superProjectile; 
     [SerializeField] ProjectileColor currentProjectileColor; 
-    [SerializeField] Sprite whiteWizard;
-    [SerializeField] Sprite redWizard;
-    [SerializeField] Sprite blueWizard;
-    [SerializeField] Sprite yellowWizard;
-    [SerializeField] Sprite purpleWizard;
-    [SerializeField] Sprite orangeWizard;
-    [SerializeField] Sprite greenWizard;
-    [SerializeField] Sprite blackWizard;
+    [SerializeField] Sprite whiteStaff;
+    [SerializeField] Sprite redStaff;
+    [SerializeField] Sprite blueStaff;
+    [SerializeField] Sprite yellowStaff;
+    [SerializeField] Sprite purpleStaff;
+    [SerializeField] Sprite orangeStaff;
+    [SerializeField] Sprite greenStaff;
+    [SerializeField] Sprite blackStaff;
 
     private HashSet<WizardColor> superColors;
 
     public event Action SuperUsed;
+    
+    private Animator animator;
 
     private void Awake()
     {
         instance = this; 
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        animator = GetComponentInChildren<Animator>();
+        staffSpriteRenderer = GetComponentsInChildren<SpriteRenderer>()[1];
         colorState = new WhiteState();
         colorState.Enter();
         GameManager.instance.ColorEnemyFell += AddSuperColor;
@@ -58,53 +61,44 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void SetWhite()
+    public void SetColor(WizardColor color)
     {
-        spriteRenderer.sprite = whiteWizard;
-        currentProjectileColor = whiteProjectile;
-    }
-    public void SetRed()
-    {
-        spriteRenderer.sprite = redWizard;
-        currentProjectileColor = redProjectile;
-
-    }
-    public void SetBlue()
-    {
-        spriteRenderer.sprite = blueWizard;
-        currentProjectileColor = blueProjectile;
-
-    }
-    public void SetYellow()
-    {
-        spriteRenderer.sprite = yellowWizard; 
-        currentProjectileColor = yellowProjectile;
-
-    }
-
-    public void SetGreen()
-    {
-        spriteRenderer.sprite = greenWizard;
-        currentProjectileColor = greenProjectile;
-
-    }
-    public void SetOrange()
-    {
-        spriteRenderer.sprite = orangeWizard;
-        currentProjectileColor = orangeProjectile;
-
-    }
-    public void SetPurple()
-    {
-        spriteRenderer.sprite = purpleWizard;
-        currentProjectileColor = purpleProjectile;
-
-    }
-    public void SetBlack()
-    {
-        spriteRenderer.sprite = blackWizard;
-        currentProjectileColor = blackProjectile;
-
+        this.animator.SetInteger("wizardColor", (int) color);
+        switch (color)
+        {
+            case WizardColor.WHITE: 
+                currentProjectileColor = whiteProjectile;
+                staffSpriteRenderer.sprite = whiteStaff;
+                break;
+            case WizardColor.BLACK:
+                currentProjectileColor = blackProjectile;
+                staffSpriteRenderer.sprite = blackStaff;
+                break;
+            case WizardColor.BLUE: 
+                currentProjectileColor = blueProjectile;
+                staffSpriteRenderer.sprite = blueStaff;
+                break;
+            case WizardColor.YELLOW:
+                currentProjectileColor = yellowProjectile;
+                staffSpriteRenderer.sprite = yellowStaff;
+                break;
+            case WizardColor.RED: 
+                currentProjectileColor = redProjectile;
+                staffSpriteRenderer.sprite = redStaff;
+                break;
+            case WizardColor.GREEN:
+                currentProjectileColor = greenProjectile;
+                staffSpriteRenderer.sprite = greenStaff;
+                break;
+            case WizardColor.ORANGE:
+                currentProjectileColor = orangeProjectile;
+                staffSpriteRenderer.sprite = orangeStaff;
+                break;
+            case WizardColor.PURPLE:
+                currentProjectileColor = purpleProjectile;
+                staffSpriteRenderer.sprite = purpleStaff;
+                break;
+        }
     }
 
     public void Shoot(Vector3 projectileSpawnpoint, Quaternion projectileRotation, Vector2 aimDirection)

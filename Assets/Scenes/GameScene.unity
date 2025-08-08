@@ -519,17 +519,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84022054}
   m_CullTransparentMesh: 1
---- !u!114 &147989166 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7376716019429587617, guid: 940b519ac402d6a458f11cdf26b48253, type: 3}
-  m_PrefabInstance: {fileID: 5188145552674702242}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de5ece9f64f7a9248941c400636fca59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &199599176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4172280242158240139, guid: 940b519ac402d6a458f11cdf26b48253, type: 3}
@@ -3629,45 +3618,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 543967146168037364, guid: 940b519ac402d6a458f11cdf26b48253, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 543967146168037364, guid: 940b519ac402d6a458f11cdf26b48253, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
-      value: a0c4191a-4641-4288-813e-625868b0f056
-      objectReference: {fileID: 0}
-    - target: {fileID: 543967146168037364, guid: 940b519ac402d6a458f11cdf26b48253, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
-      value: PlayerControlls/Super[/Mouse/rightButton]
-      objectReference: {fileID: 0}
-    - target: {fileID: 543967146168037364, guid: 940b519ac402d6a458f11cdf26b48253, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 543967146168037364, guid: 940b519ac402d6a458f11cdf26b48253, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+    - target: {fileID: 1929739345077700288, guid: 940b519ac402d6a458f11cdf26b48253, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 543967146168037364, guid: 940b519ac402d6a458f11cdf26b48253, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    - target: {fileID: 3780360137879194727, guid: 940b519ac402d6a458f11cdf26b48253, type: 3}
+      propertyPath: m_Size.x
+      value: 0.4375
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780360137879194727, guid: 940b519ac402d6a458f11cdf26b48253, type: 3}
+      propertyPath: m_Size.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780360137879194727, guid: 940b519ac402d6a458f11cdf26b48253, type: 3}
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 147989166}
-    - target: {fileID: 543967146168037364, guid: 940b519ac402d6a458f11cdf26b48253, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 543967146168037364, guid: 940b519ac402d6a458f11cdf26b48253, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShootSuper
-      objectReference: {fileID: 0}
-    - target: {fileID: 543967146168037364, guid: 940b519ac402d6a458f11cdf26b48253, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AimAndShoot, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 543967146168037364, guid: 940b519ac402d6a458f11cdf26b48253, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 2422325012378103385, guid: b263e5abf7d1e5d46a1528ab6314eca8, type: 3}
+    - target: {fileID: 3780360137879194727, guid: 940b519ac402d6a458f11cdf26b48253, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4172280242158240139, guid: 940b519ac402d6a458f11cdf26b48253, type: 3}
       propertyPath: m_LocalPosition.x

@@ -23,7 +23,8 @@ public class WhiteState : IState
 
     public override void Enter()
     {
-        PlayerManager.instance.SetWhite();
+        currentColor = WizardColor.WHITE;
+        PlayerManager.instance.SetColor(currentColor);
     }
 
     public override void Exit()
