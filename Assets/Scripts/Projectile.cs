@@ -19,10 +19,6 @@ public class Projectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(transform.position.x > 20 || transform.position.y > 20 ||
-            transform.position.x < -20 || transform.position.y < -20)
-        {
-            Destroy(gameObject);
-        }
+
     }
 }

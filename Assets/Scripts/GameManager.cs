@@ -45,27 +45,27 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
-    public void EnemyDied(WizardColor color)
+    public void EnemyDied(WizardColor color, int points)
     {
-        EnemyDied();
+        EnemyDied(points);
         ColorEnemyFell?.Invoke(color);
     }
 
-    public void EnemyDied()
+    public void EnemyDied(int points)
     {
         currentCombo += 1;
         timeElapsed = 0;
         RefreshCombo.Invoke(currentCombo);
 
-        score += CalculatePoints();
+        score += CalculatePoints(points);
         ScoreChanged?.Invoke(score);
     }
 
-    private int CalculatePoints()
+    private int CalculatePoints(int points)
     {
         if(currentCombo < 3)
-            return basePoints;
+            return points;
 
-        return basePoints * currentCombo;
+        return points * currentCombo;
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -15,12 +16,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float deadSpriteDuration;
     private AudioSource audioSource;
     private Animator animator;
-    [SerializeField] AnimatorOverrideController blueAnimator;
-    [SerializeField] AnimatorOverrideController redAnimator;
-    [SerializeField] AnimatorOverrideController yellowAnimator;
-    [SerializeField] AnimatorOverrideController greenAnimator;
-    [SerializeField] AnimatorOverrideController orangeAnimator;
-    [SerializeField] AnimatorOverrideController purpleAnimator;
+    private EnemyType type;
+    private BoxCollider2D enemyCollider;
 
 
     private void Update()
@@ -40,33 +37,39 @@ public class Enemy : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
+        enemyCollider = GetComponent<BoxCollider2D>();
     }
 
-    public void SetEnemyColor(EnemyColor enemyColor, float currentSpawnRate)
+    public void SetEnemy(EnemyColor enemyColor, EnemyType enemyType)
     {
         this.enemyColor = enemyColor;
+        type = enemyType;
+        enemyCollider.offset = enemyType.colliderOffset;
+        enemyCollider.size = enemyType.colliderSize;
+
         switch (this.enemyColor.color)
         {
             case WizardColor.BLUE:
-                animator.runtimeAnimatorController = blueAnimator;
+                animator.runtimeAnimatorController = type.blueAnimator;
                 break;
             case WizardColor.YELLOW:
-                animator.runtimeAnimatorController = yellowAnimator;
+                animator.runtimeAnimatorController = type.yellowAnimator;
                 break;
             case WizardColor.RED:
-                animator.runtimeAnimatorController = redAnimator;
+                animator.runtimeAnimatorController = type.redAnimator;
                 break;
             case WizardColor.GREEN:
-                animator.runtimeAnimatorController = greenAnimator;
+                animator.runtimeAnimatorController = type.greenAnimator;
                 break;
             case WizardColor.ORANGE:
-                animator.runtimeAnimatorController = orangeAnimator;
+                animator.runtimeAnimatorController = type.orangeAnimator;
                 break;
             case WizardColor.PURPLE:
-                animator.runtimeAnimatorController = purpleAnimator;
+                animator.runtimeAnimatorController = type.purpleAnimator;
                 break;
         }
-        movementSpeed = Random.Range(movementSpeedLow - currentSpawnRate, movementSpeedHigh - 2*currentSpawnRate);
+
+        movementSpeed = Random.Range(type.minSpeed, type.maxSpeed);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -74,14 +77,14 @@ public class Enemy : MonoBehaviour
         Projectile projectile = collision.gameObject.GetComponent<Projectile>();
         if (projectile.projectileColor.color == enemyColor.color)
         {
-            GameManager.instance.EnemyDied(enemyColor.color);
+            GameManager.instance.EnemyDied(enemyColor.color, type.pointsWorth);
             Destroy(collision.gameObject);
             Dead();
         }
 
         if(projectile.projectileColor.color == WizardColor.ALL)
         {
-            GameManager.instance.EnemyDied();
+            GameManager.instance.EnemyDied(type.pointsWorth);
             Dead();
         }
         else
@@ -94,9 +97,8 @@ public class Enemy : MonoBehaviour
     void Dead()
     {
         movementSpeed = 0;
-        gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        animator.StopPlayback();
-        spriteRenderer.sprite = hitSprite;
+        enemyCollider.enabled = false;
+        animator.SetBool("Dead", true);
         StartCoroutine(DisplayHitFrame());
     }
 

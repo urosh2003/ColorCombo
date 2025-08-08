@@ -8,19 +8,43 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float spawnTimer;
     [SerializeField] float timeElapsed;
     [SerializeField] List<EnemyColor> enemyColors;
+    [SerializeField] List<EnemyType> enemies;
     [SerializeField] Transform enemyPrefab;
     [SerializeField] float spawnRampStep;
+
+    [SerializeField] float addEnemiesTimer;
+    [SerializeField] float addEnemiesElapsed;
+
+    [SerializeField] int currentMaxEnemy;
+    [SerializeField] int currentMaxColor;
 
     // Start is called before the first frame update
     void Start()
     {
         timeElapsed = 0;
+        addEnemiesElapsed = 0;
+        currentMaxEnemy = 1;
+        currentMaxColor = 3;
     }
 
     // Update is called once per frame
     void Update()
     {
         timeElapsed += Time.deltaTime;
+        addEnemiesElapsed += Time.deltaTime;
+
+        if(addEnemiesElapsed > addEnemiesTimer && currentMaxEnemy <= enemies.Count)
+        {
+            addEnemiesElapsed = 0;
+
+            if(currentMaxColor == 3)
+                currentMaxColor = 6;
+            else if (currentMaxEnemy < enemies.Count)
+            {
+                currentMaxColor = 3;
+                currentMaxEnemy += 1;
+            }
+        }
 
         if (timeElapsed > spawnTimer)
         {
@@ -36,9 +60,16 @@ public class EnemySpawner : MonoBehaviour
     void SpawnEnemy()
     {
         int spawnPosition = Random.Range(0, spawnOffsets.Count);
-        int spawnColor = Random.Range(0, enemyColors.Count);
+        int spawnColor = Random.Range(0, currentMaxColor);
+        int enemyType = Random.Range(0, currentMaxEnemy);
+
 
         Transform spawnedEnemy = Instantiate(enemyPrefab, PlayerManager.instance.transform.position + spawnOffsets[spawnPosition], Quaternion.identity);
-        spawnedEnemy.GetComponent<Enemy>().SetEnemyColor(enemyColors[spawnColor], spawnTimer);
+
+
+        spawnedEnemy.GetComponent<Enemy>().SetEnemy(enemyColors[spawnColor], enemies[enemyType]);
     }
+
+
+    
 }
