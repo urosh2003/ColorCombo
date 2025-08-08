@@ -22467,7 +22467,7 @@ MonoBehaviour:
   - {x: -10, y: 8, z: 0}
   - {x: 10, y: -8, z: 0}
   - {x: -10, y: -8, z: 0}
-  spawnTimer: 2
+  spawnTimer: 2.25
   timeElapsed: 0
   enemyColors:
   - {fileID: 11400000, guid: c12431c19f87a6a409affec65e16a81a, type: 2}
@@ -22482,7 +22482,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ef8eb71d6beb55e45ae36f4dfa080146, type: 2}
   enemyPrefab: {fileID: 4036164231237830324, guid: e13bfd5930b48d54f9b036496e68ea11, type: 3}
   spawnRampStep: 0.01
-  addEnemiesTimer: 10
+  addEnemiesTimer: 15
   addEnemiesElapsed: 0
   currentMaxEnemy: 0
   currentMaxColor: 0
