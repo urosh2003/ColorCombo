@@ -1,3 +1,4 @@
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 
 public class HitSound : MonoBehaviour
@@ -5,6 +6,7 @@ public class HitSound : MonoBehaviour
     AudioSource audioSource;
     [SerializeField] private AudioClip hitSound;
     [SerializeField] private AudioClip comboSound;
+    [SerializeField] private AudioClip missSound;
     [SerializeField] private int maxComboSound;
 
 
@@ -13,6 +15,15 @@ public class HitSound : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         GameManager.instance.RefreshCombo += PlaySound;
+        GameManager.instance.FailHit += PlayFail;
+    }
+
+    private void PlayFail()
+    { 
+        audioSource.pitch = 1;
+        audioSource.clip = missSound;
+        audioSource.Play();
+
     }
 
     private void PlaySound(int combo)
@@ -30,11 +41,11 @@ public class HitSound : MonoBehaviour
             audioSource.clip = comboSound;
         }
         audioSource.Play();
-
     }
 
     private void OnDestroy()
     {
         GameManager.instance.RefreshCombo -= PlaySound;
+        GameManager.instance.FailHit -= PlayFail;
     }
 }

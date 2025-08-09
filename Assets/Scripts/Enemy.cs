@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float movementSpeedLow;
     [SerializeField] private float movementSpeedHigh;
     [SerializeField] private float deadSpriteDuration;
-    private AudioSource audioSource;
     private Animator animator;
     private EnemyType type;
     private BoxCollider2D enemyCollider;
@@ -33,7 +32,6 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
@@ -75,14 +73,17 @@ public class Enemy : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         Projectile projectile = collision.gameObject.GetComponent<Projectile>();
+        if (projectile == null) 
+        {
+            return;
+        }
         if (projectile.projectileColor.color == enemyColor.color)
         {
             GameManager.instance.EnemyDied(enemyColor.color, type.pointsWorth);
             Destroy(collision.gameObject);
             Dead();
         }
-
-        if(projectile.projectileColor.color == WizardColor.ALL)
+        else if(projectile.projectileColor.color == WizardColor.ALL)
         {
             GameManager.instance.EnemyDied(type.pointsWorth);
             Dead();
@@ -90,7 +91,7 @@ public class Enemy : MonoBehaviour
         else
         {
             Destroy(collision.gameObject);
-            audioSource.Play();
+            GameManager.instance.HitFailed();
         }
     }
 

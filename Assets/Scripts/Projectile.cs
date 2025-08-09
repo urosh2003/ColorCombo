@@ -26,6 +26,7 @@ public class Projectile : MonoBehaviour
     {
         if(collision.gameObject.layer == 6)
         {
+            GameManager.instance.HitFailed();
             Destroy(gameObject);
         }
     }

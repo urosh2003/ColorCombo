@@ -11,11 +11,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] int currentCombo;
     [SerializeField] int comboMultiplier;
     [SerializeField] int basePoints;
+    [SerializeField] int chestPoints;
     public int score;
 
     public event Action<int> ScoreChanged;
     public event Action<WizardColor> ColorEnemyFell;
     public event Action<int> RefreshCombo;
+    public event Action FailHit;
+    public event Action<int> ChestCollected;
 
     private void Awake()
     {
@@ -31,6 +34,11 @@ public class GameManager : MonoBehaviour
             currentCombo = 0;
             RefreshCombo.Invoke(currentCombo);
         }
+    }
+
+    public void HitFailed()
+    {
+        FailHit.Invoke();
     }
 
     public void GameOver()
@@ -67,5 +75,12 @@ public class GameManager : MonoBehaviour
             return points;
 
         return points * currentCombo;
+    }
+
+    public void ChestPickedUp(int chestNumber)
+    {
+        ChestCollected?.Invoke(chestNumber);
+        score += CalculatePoints(chestPoints);
+        ScoreChanged?.Invoke(score);
     }
 }

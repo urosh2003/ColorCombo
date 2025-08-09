@@ -20,7 +20,7 @@ MonoBehaviour:
   purpleAnimator: {fileID: 22100000, guid: 49de8a9c05846ac47a7e17d8bd0ade14, type: 2}
   minSpeed: 0.5
   maxSpeed: 1
-  pointsWorth: 1
+  pointsWorth: 10
   hitsRequired: 1
   colliderOffset: {x: 0.03, y: -0.03}
   colliderSize: {x: 0.56, y: 0.56}
