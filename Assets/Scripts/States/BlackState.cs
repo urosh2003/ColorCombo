@@ -17,7 +17,8 @@ public class BlackState : IState
 
     public override void Enter()
     {
-        PlayerManager.instance.SetBlack();
+        currentColor = WizardColor.BLACK;
+        PlayerManager.instance.SetColor(currentColor);
     }
 
     public override void Exit()

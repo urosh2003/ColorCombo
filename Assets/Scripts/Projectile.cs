@@ -19,9 +19,14 @@ public class Projectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(transform.position.x > 20 || transform.position.y > 20 ||
-            transform.position.x < -20 || transform.position.y < -20)
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == 6)
         {
+            GameManager.instance.HitFailed();
             Destroy(gameObject);
         }
     }

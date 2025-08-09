@@ -17,7 +17,8 @@ public class RedState : IState
 
     public override void Enter()
     {
-        PlayerManager.instance.SetRed();
+        currentColor = WizardColor.RED;
+        PlayerManager.instance.SetColor(currentColor);
     }
 
     public override void Exit()

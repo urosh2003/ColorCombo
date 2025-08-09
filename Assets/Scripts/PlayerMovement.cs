@@ -6,11 +6,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float movementSpeed;
     private Vector2 movementVecror;
     private Rigidbody2D rigidbody;
+    private SpriteRenderer spriteRenderer;
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -35,6 +39,11 @@ public class PlayerMovement : MonoBehaviour
     {
 
         movementVecror = context.ReadValue<Vector2>();
+
+        if(movementVecror.x > 0)
+            spriteRenderer.flipX = false;
+        else if(movementVecror.x < 0) 
+            spriteRenderer.flipX = true;
 
     }
 }

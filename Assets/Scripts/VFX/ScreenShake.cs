@@ -29,7 +29,7 @@ public class ScreenShake : MonoBehaviour
 
     private void SuperShake()
     {
-        channelPerlin.m_AmplitudeGain += superShakeAmplitude;
+        channelPerlin.m_AmplitudeGain = superShakeAmplitude;
         channelPerlin.m_FrequencyGain = superShakeFrequency;
 
         currentShakeAmplitude = superShakeAmplitude;
@@ -47,7 +47,7 @@ public class ScreenShake : MonoBehaviour
         if (combo < 0)
             combo = 0;
 
-        channelPerlin.m_AmplitudeGain += combo * perComboShakeAmplitude + comboBaseShakeAmplitude;
+        channelPerlin.m_AmplitudeGain = combo * perComboShakeAmplitude + comboBaseShakeAmplitude;
         channelPerlin.m_FrequencyGain = comboShakeFrequency;
 
         currentShakeAmplitude = channelPerlin.m_AmplitudeGain;

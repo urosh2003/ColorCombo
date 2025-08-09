@@ -8,6 +8,7 @@ using Unity;
 
 public abstract class IState
 {
+    public WizardColor currentColor;
     public abstract void Enter();
     public abstract void Exit();
     public abstract IState AddRed();

@@ -11,11 +11,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] int currentCombo;
     [SerializeField] int comboMultiplier;
     [SerializeField] int basePoints;
+    [SerializeField] int chestPoints;
     public int score;
 
     public event Action<int> ScoreChanged;
     public event Action<WizardColor> ColorEnemyFell;
     public event Action<int> RefreshCombo;
+    public event Action FailHit;
+    public event Action<int> ChestCollected;
 
     private void Awake()
     {
@@ -33,6 +36,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void HitFailed()
+    {
+        FailHit.Invoke();
+    }
+
     public void GameOver()
     {
         Time.timeScale = 0;
@@ -45,27 +53,34 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
-    public void EnemyDied(WizardColor color)
+    public void EnemyDied(WizardColor color, int points)
     {
-        EnemyDied();
+        EnemyDied(points);
         ColorEnemyFell?.Invoke(color);
     }
 
-    public void EnemyDied()
+    public void EnemyDied(int points)
     {
         currentCombo += 1;
         timeElapsed = 0;
         RefreshCombo.Invoke(currentCombo);
 
-        score += CalculatePoints();
+        score += CalculatePoints(points);
         ScoreChanged?.Invoke(score);
     }
 
-    private int CalculatePoints()
+    private int CalculatePoints(int points)
     {
         if(currentCombo < 3)
-            return basePoints;
+            return points;
 
-        return basePoints * currentCombo;
+        return points * currentCombo;
+    }
+
+    public void ChestPickedUp(int chestNumber)
+    {
+        ChestCollected?.Invoke(chestNumber);
+        score += CalculatePoints(chestPoints);
+        ScoreChanged?.Invoke(score);
     }
 }
