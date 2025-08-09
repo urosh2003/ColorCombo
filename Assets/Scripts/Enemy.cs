@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float deadSpriteDuration;
     private Animator animator;
     private EnemyType type;
-    private BoxCollider2D enemyCollider;
+    private CapsuleCollider2D enemyCollider;
 
 
     private void Update()
@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
-        enemyCollider = GetComponent<BoxCollider2D>();
+        enemyCollider = GetComponent<CapsuleCollider2D>();
     }
 
     public void SetEnemy(EnemyColor enemyColor, EnemyType enemyType)

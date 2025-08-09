@@ -22,5 +22,5 @@ MonoBehaviour:
   maxSpeed: 2
   pointsWorth: 20
   hitsRequired: 1
-  colliderOffset: {x: 0, y: 0}
-  colliderSize: {x: 0.63, y: 1.1}
+  colliderOffset: {x: 0, y: -0.08}
+  colliderSize: {x: 0.63, y: 1.14}

@@ -16,6 +16,6 @@ public class EnemyType : ScriptableObject
     public int pointsWorth;
     public int hitsRequired;
 
-    public Vector2 colliderOffset; // 1: 0.03/-0.03     2:  0/0     3: -0.02/-0.15
-    public Vector2 colliderSize; //   1: 0.56/0.56      2: 0.63/11  3: 1.18/1.68
+    public Vector2 colliderOffset; // 1: 0.03/-0.03     2:  0/0     3: -0.02/-0.15 ------- 0.03/-0.05   0/-0.08
+    public Vector2 colliderSize; //   1: 0.56/0.56      2: 0.63/11  3: 1.18/1.68   ------- 0.56/0.56        0.63/1.14 
 }
