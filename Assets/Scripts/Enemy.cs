@@ -80,7 +80,6 @@ public class Enemy : MonoBehaviour
         if (projectile.projectileColor.color == enemyColor.color)
         {
             GameManager.instance.EnemyDied(enemyColor.color, type.pointsWorth);
-            Destroy(collision.gameObject);
             Dead();
         }
         else if(projectile.projectileColor.color == WizardColor.ALL)
@@ -90,7 +89,6 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            Destroy(collision.gameObject);
             GameManager.instance.HitFailed();
         }
     }
