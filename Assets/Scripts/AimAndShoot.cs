@@ -23,15 +23,11 @@ public class AimAndShoot : MonoBehaviour
     void Update()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0; // Ensure z-position is 0 for 2D
 
-        // Calculate direction from gun to mouse
         aimDirection = mousePosition - transform.position;
 
-        // Calculate the angle in degrees
         aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - ANGLE_OFFSET;
 
-        // Apply the rotation to the gun
         transform.rotation = Quaternion.Euler(0, 0, aimAngle);
     }
 

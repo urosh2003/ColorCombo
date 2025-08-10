@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour
 
     public void EnemyDied(WizardColor color, int points)
     {
+        if(color == WizardColor.PURPLE || color == WizardColor.ORANGE || color == WizardColor.GREEN)
+            points = (int)(points * 1.5);
         EnemyDied(points);
         ColorEnemyFell?.Invoke(color);
     }
@@ -80,7 +82,7 @@ public class GameManager : MonoBehaviour
     public void ChestPickedUp(int chestNumber)
     {
         ChestCollected?.Invoke(chestNumber);
-        score += CalculatePoints(chestPoints);
+        score += chestPoints;
         ScoreChanged?.Invoke(score);
     }
 }

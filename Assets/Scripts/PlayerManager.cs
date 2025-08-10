@@ -34,6 +34,17 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] Sprite greenStaff;
     [SerializeField] Sprite blackStaff;
 
+    [SerializeField] Texture2D cursorWhite;
+    [SerializeField] Texture2D cursorBlack;
+    [SerializeField] Texture2D cursorRed;
+    [SerializeField] Texture2D cursorBlue;
+    [SerializeField] Texture2D cursorYellow;
+    [SerializeField] Texture2D cursorGreen;
+    [SerializeField] Texture2D cursorOrange;
+    [SerializeField] Texture2D cursorPurple;
+
+    [SerializeField] Vector2 cursorOffset;
+
     private HashSet<WizardColor> superColors;
 
     public event Action SuperUsed;
@@ -69,34 +80,49 @@ public class PlayerManager : MonoBehaviour
             case WizardColor.WHITE: 
                 currentProjectileColor = whiteProjectile;
                 staffSpriteRenderer.sprite = whiteStaff;
+                Cursor.SetCursor(cursorWhite, cursorOffset, CursorMode.Auto);
                 break;
             case WizardColor.BLACK:
                 currentProjectileColor = blackProjectile;
                 staffSpriteRenderer.sprite = blackStaff;
+                Cursor.SetCursor(cursorBlack, cursorOffset, CursorMode.Auto);
+
                 break;
             case WizardColor.BLUE: 
                 currentProjectileColor = blueProjectile;
                 staffSpriteRenderer.sprite = blueStaff;
+                Cursor.SetCursor(cursorBlue, cursorOffset, CursorMode.Auto);
+
                 break;
             case WizardColor.YELLOW:
                 currentProjectileColor = yellowProjectile;
                 staffSpriteRenderer.sprite = yellowStaff;
+                Cursor.SetCursor(cursorYellow, cursorOffset, CursorMode.Auto);
+
                 break;
             case WizardColor.RED: 
                 currentProjectileColor = redProjectile;
                 staffSpriteRenderer.sprite = redStaff;
+                Cursor.SetCursor(cursorRed, cursorOffset, CursorMode.Auto);
+
                 break;
             case WizardColor.GREEN:
                 currentProjectileColor = greenProjectile;
                 staffSpriteRenderer.sprite = greenStaff;
+                Cursor.SetCursor(cursorGreen, cursorOffset, CursorMode.Auto);
+
                 break;
             case WizardColor.ORANGE:
                 currentProjectileColor = orangeProjectile;
                 staffSpriteRenderer.sprite = orangeStaff;
+                Cursor.SetCursor(cursorOrange, cursorOffset, CursorMode.Auto);
+
                 break;
             case WizardColor.PURPLE:
                 currentProjectileColor = purpleProjectile;
                 staffSpriteRenderer.sprite = purpleStaff;
+                Cursor.SetCursor(cursorPurple, cursorOffset, CursorMode.Auto);
+
                 break;
         }
     }

@@ -64,8 +64,10 @@ public class ChestArrow : MonoBehaviour
 
     void PositionArrow(Vector3 screenPos)
     {
+        Vector3 playerPosition = PlayerManager.instance.transform.position;
+        playerPosition = mainCamera.WorldToScreenPoint(playerPosition);
         Vector3 screenCenter = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
-        Vector3 dir = (screenPos - screenCenter).normalized;
+        Vector3 dir = (screenPos - playerPosition).normalized;
         // Rotate arrow to face target
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
 
