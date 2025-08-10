@@ -52,6 +52,7 @@ public class MainMenuManager : MonoBehaviour
         credits.SetActive(false);
         howToPlay.SetActive(true);
     }
+
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
