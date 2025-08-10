@@ -21,6 +21,8 @@ public class ScreenShake : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("got: " + SettingsManager.Instance.GetSavedScreenShakeEnabled());
+
         camera = GetComponent<CinemachineVirtualCamera>();
         channelPerlin = camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         PlayerManager.instance.SuperUsed += SuperShake;
@@ -29,6 +31,10 @@ public class ScreenShake : MonoBehaviour
 
     private void SuperShake()
     {
+        if (!SettingsManager.Instance.GetSavedScreenShakeEnabled())
+        {
+            return;
+        }
         channelPerlin.m_AmplitudeGain = superShakeAmplitude;
         channelPerlin.m_FrequencyGain = superShakeFrequency;
 
@@ -39,6 +45,10 @@ public class ScreenShake : MonoBehaviour
 
     private void ComboShake(int combo)
     {
+        if (!SettingsManager.Instance.GetSavedScreenShakeEnabled())
+        {
+            return;
+        }
         if (combo == 0)
         {
             return;

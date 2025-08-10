@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
     public event Action<int> RefreshCombo;
     public event Action FailHit;
     public event Action<int> ChestCollected;
+
+    [SerializeField] TextMeshProUGUI finalScoreText;
 
     private void Awake()
     {
@@ -45,12 +48,19 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
         gameOverScreen.SetActive(true);
+        finalScoreText.text = "Score: " + score;
     }
 
     public void NewGame()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("GameScene");
+    }
+
+    public void BackToMainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void EnemyDied(WizardColor color, int points)
