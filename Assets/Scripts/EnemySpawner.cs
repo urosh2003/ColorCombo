@@ -61,6 +61,8 @@ public class EnemySpawner : MonoBehaviour
                 spawnTimer -= spawnRampStep;
             }
             SpawnEnemy();
+            SpawnEnemy();
+
         }
     }
 

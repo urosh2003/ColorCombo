@@ -572,6 +572,15 @@ MonoBehaviour:
   orangeStaff: {fileID: -6684401338016029441, guid: c031bc961e21d8d489b6044a7bde2dcc, type: 3}
   greenStaff: {fileID: 542400060482157948, guid: 40cc3cf30a29d6042975c803d9757192, type: 3}
   blackStaff: {fileID: 3815875533809027589, guid: a430c20566ec968408eec4cda5deb2b1, type: 3}
+  cursorWhite: {fileID: 2800000, guid: 35aa7db679243884ebe60c852b872c30, type: 3}
+  cursorBlack: {fileID: 2800000, guid: 0c140cf2268b55b44bb3c0635942eed9, type: 3}
+  cursorRed: {fileID: 2800000, guid: 72ee4dcfb7b41544698cf422b26fe72f, type: 3}
+  cursorBlue: {fileID: 2800000, guid: b24704f510f37734fa2df6133d77d74c, type: 3}
+  cursorYellow: {fileID: 2800000, guid: 55ed5a27e0d896649b496cd4bcd435e8, type: 3}
+  cursorGreen: {fileID: 2800000, guid: 8551fbb3c244f8d47a0a09f7af9c108e, type: 3}
+  cursorOrange: {fileID: 2800000, guid: fa8168630b2b97646a5cec7a7aa21fe5, type: 3}
+  cursorPurple: {fileID: 2800000, guid: 88e21a82d20b69844af9c72fcb6e6112, type: 3}
+  cursorOffset: {x: 16, y: 16}
 --- !u!70 &767244525488502921
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
