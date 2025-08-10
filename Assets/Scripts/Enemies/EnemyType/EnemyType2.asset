@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da9dd07c5fac334d8a613860ecc3d62, type: 3}
+  m_Name: EnemyType2
+  m_EditorClassIdentifier: 
+  blueAnimator: {fileID: 22100000, guid: 2209d26e92319204f8adb9525b890a1e, type: 2}
+  redAnimator: {fileID: 22100000, guid: c4132239fad22f84d8f4fb375ef4fc54, type: 2}
+  yellowAnimator: {fileID: 22100000, guid: 6007209d3790e9548adb9ea4ae58e1f9, type: 2}
+  greenAnimator: {fileID: 22100000, guid: f81daaf71e7256f44acc84a90be275b4, type: 2}
+  orangeAnimator: {fileID: 22100000, guid: fe3a2726b12a67841b4fc73d4fbbbe3e, type: 2}
+  purpleAnimator: {fileID: 22100000, guid: bdd6245c73bb99f4fa6054dfc32f6239, type: 2}
+  minSpeed: 1
+  maxSpeed: 2
+  pointsWorth: 20
+  hitsRequired: 1
+  colliderOffset: {x: 0, y: -0.08}
+  colliderSize: {x: 0.63, y: 1.14}

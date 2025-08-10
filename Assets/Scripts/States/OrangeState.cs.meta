@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 3759a1fcc2debc64d9e066b1bcf4b386
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - wizardProjectile: {fileID: 11400000, guid: f720bcba25cde824e943e60eb5ffdccd, type: 2}
+  - wizardSprite: {fileID: 3104197123997736047, guid: 8ee2fd462cecde145b9e8c4528e1754a, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
