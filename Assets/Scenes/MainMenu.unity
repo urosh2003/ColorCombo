@@ -12768,7 +12768,7 @@ MonoBehaviour:
   mainMenu: {fileID: 1971416121}
   settings: {fileID: 1253649018}
   credits: {fileID: 637529903}
-  howToPlay: {fileID: 0}
+  howToPlay: {fileID: 1762842634}
   mainMenuCursor: {fileID: 2800000, guid: 5316a6c6796c5f34baffed98b4ee650f, type: 3}
 --- !u!4 &1750902130
 Transform:
