@@ -22618,8 +22618,8 @@ MonoBehaviour:
   addEnemiesElapsed: 0
   currentMaxEnemy: 0
   currentMaxColor: 0
-  minDistance: 12
-  maxDistance: 20
+  minDistance: 20
+  maxDistance: 30
 --- !u!1 &1927030578
 GameObject:
   m_ObjectHideFlags: 0
