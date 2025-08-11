@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         gameOverScreen.SetActive(true);
         finalScoreText.text = "Score: " + score;
+        LeaderboardManager.Instance.SubmitScore(score);
     }
 
     public void NewGame()

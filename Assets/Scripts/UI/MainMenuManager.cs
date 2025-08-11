@@ -9,6 +9,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject settings;
     public GameObject credits;
     public GameObject howToPlay;
+    public GameObject leaderboard;
     [SerializeField] Texture2D mainMenuCursor;
 
 
@@ -30,6 +31,7 @@ public class MainMenuManager : MonoBehaviour
         settings.SetActive(false);
         credits.SetActive(false);
         howToPlay.SetActive(false);
+        leaderboard.SetActive(false);
     }
     public void TurnOnSettings()
     {
@@ -37,6 +39,8 @@ public class MainMenuManager : MonoBehaviour
         settings.SetActive(true);
         credits.SetActive(false);
         howToPlay.SetActive(false);
+        leaderboard.SetActive(false);
+
     }
     public void TurnOnCredits()
     {
@@ -44,6 +48,7 @@ public class MainMenuManager : MonoBehaviour
         settings.SetActive(false);
         credits.SetActive(true);
         howToPlay.SetActive(false);
+        leaderboard.SetActive(false);
     }
     public void TurnOnHowToPlay()
     {
@@ -51,6 +56,15 @@ public class MainMenuManager : MonoBehaviour
         settings.SetActive(false);
         credits.SetActive(false);
         howToPlay.SetActive(true);
+        leaderboard.SetActive(false);
+    }
+    public void TurnOnLeaderboard()
+    {
+        mainMenu.SetActive(false);
+        settings.SetActive(false);
+        credits.SetActive(false);
+        howToPlay.SetActive(false);
+        leaderboard.SetActive(true);
     }
 
     public void LoadScene(string sceneName)
